@@ -10,6 +10,8 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 **FILES**
 
+_Please use the following files as a guideline_
+
   - [Ansible_Playbook](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/my_ansible.yml) 
   - [Ansible_Hosts](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/hosts)
   - [Ansible_Configuration](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/ansible.cfg)
@@ -77,9 +79,7 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-_What is the main advantage of automating configuration with Ansible?_ 
-- Using ansible saves alot of time as everything is autonomous. An operator can create a task summary in to file called a "playbook" and when this runs on a control machine, ansible uses SSH to communicate with hosts multiple hosts; reinforcing security during the operation.
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it is efficient, scalable and reliable.An operator can create a task summary in to file called a "playbook" and when this runs on a control machine, ansible uses SSH to communicate with hosts multiple hosts; reinforcing security during the operation.
 
 The playbook implements the following tasks:
 _In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
