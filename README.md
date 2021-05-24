@@ -150,9 +150,9 @@ For example;
 _Which URL do you navigate to in order to check that the ELK server is running?_
 - **http://[VM-PUBLIC-IP]:5601/app/kibana**
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+**_Helpful tips_**
 
-- `sudo docker start **[container_name]**` && `sudo docker attach **[container_name]**`. This will start your container and allow you to SSH in to them.
-- Run `ansible-playbook **[Playbook_Name].yml**` to execute the playbook.
+- `sudo docker start [container_name]` && `sudo docker attach [container_name]`. This will start your container and allow you to SSH in to them.
+- Run `ansible-playbook [Playbook_Name].yml` to execute the playbook.
 - Use a text editor such as vim or nano to make changes to the **[Hosts]**, **[ansible.cfg]** or
 **[YML]** files; i.e nano **[Playbook_name].yml**
