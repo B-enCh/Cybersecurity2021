@@ -45,7 +45,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 "Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticssearch or Logstash." - _Reference_ [Metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html#:~:text=Metricbeat%20is%20a%20lightweight%20shipper,such%20as%20Elasticsearch%20or%20Logstash).
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+
 
 | Name                 | Function         | IP Address              | Operating System |
 |----------------------|------------------|-------------------------|------------------|
@@ -59,13 +59,13 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the ELK machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the **ELK** machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - Home Public IP through TCP on Port 5601
 
 Machines within the network can only be accessed by the Jumpbox.
-_Which machine did you allow to access your ELK VM? What was its IP address?_ 
-- Jumpbox: 10.0.0.4 / Port 22 
-- Client : Public Home IP / Port 5601 (TCP)
+
+- **Jumpbox**: 10.0.0.4 / Port 22 
+- **Client** : Public Home IP / Port 5601 (TCP)
 
 A summary of the access policies in place can be found in the table below.
 
@@ -82,7 +82,6 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it is efficient, scalable and reliable.An operator can create a task summary in to file called a "playbook" and when this runs on a control machine, ansible uses SSH to communicate with hosts multiple hosts; reinforcing security during the operation.
 
 The playbook implements the following tasks:
-_In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 
 1. Docker.io, Python3-pip is installed using the apt module in linux.
 2. Increase virtual memory using sysctl.
@@ -107,8 +106,7 @@ We have installed the following Beats on these machines:
 - Web-2 @ 10.0.0.6
 - Web-3 @ 10.0.0.8
 
-_Specify which Beats you successfully installed_
-- FileBeat and MetricBeat were installed.
+**_FileBeat and MetricBeat were installed._**
 
 These Beats allow us to collect the following information from each machine:
 _In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
@@ -131,7 +129,6 @@ METRICBEAT
 - Update the filebeat-playbook.yml file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb`
 - Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/dockerMetrics_** > Click **Check data** at Step5  to check that the installation worked as expected
 
-_Answer the following questions to fill in the blanks:_
 _Which file is the playbook? Where do you copy it?_
 - FileBeat : [filebeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/filebeat-playbook.yml); Copy to `/etc/filebeat/filebeat.yml`
 - MetricBeat : [metricbeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/metricbeat-playbook.yml); Copy to `/etc/metricbeat/metricbeat.yml`
