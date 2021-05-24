@@ -4,13 +4,13 @@ This is Benedict's files for Cybersecurity Bootcamp 2021!
 
 The files in this repository were used to configure the network depicted below.
 
-![Network_Diagram](https://github.com/B-enCh/Cybersecurity2021/blob/main/Diagrams/Cloud_Security.png)
+![](Diagrams/Cloud_Security.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _YML_ file may be used to install only certain pieces of it, such as Filebeat.
 
 **FILES**
 
-  - [Ansible Playbook](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/my_ansible.yml) 
+  - [Ansible_Playbook](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/my_ansible.yml) 
   - [Ansible_Hosts](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/hosts)
   - [Ansible_Configuration](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/ansible.cfg)
   - [Ansible_Configuration_of_ELK_VM](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/install-elk.yml)
@@ -121,31 +121,32 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 FILEBEAT
-- Copy the file; https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat >> /etc/ansible/roles/filebeat-config.yml.
-- Update the filebeat-playbook.yml file to include curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
-- Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/systemlogs_** > Click **Check data** at Step5  to check that the installation worked as expected.
+- Copy the file; `https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat` >> `/etc/ansible/roles/filebeat-config.yml`
+- Update the filebeat-playbook.yml file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb`
+- Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/systemlogs_** > Click **Check data** at Step5  to check that the installation worked as expected
 
 METRICBEAT
-- Copy the file; 'curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat' >> '/etc/ansible/roles/metricbeat-config.yml'
-- Update the filebeat-playbook.yml file to include 'curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb'
-- Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/dockerMetrics_** > Click **Check data** at Step5  to check that the installation worked as expected.
+- Copy the file; `curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat` >> `/etc/ansible/roles/metricbeat-config.yml`.
+- Update the filebeat-playbook.yml file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb`
+- Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/dockerMetrics_** > Click **Check data** at Step5  to check that the installation worked as expected
 
 _Answer the following questions to fill in the blanks:_
 _Which file is the playbook? Where do you copy it?_
-- FileBeat : [filebeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/filebeat-playbook.yml); Copy to '/etc/filebeat/filebeat.yml'
-- MetricBeat : [metricbeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/metricbeat-playbook.yml); Copy to '/etc/metricbeat/metricbeat.yml'
+- FileBeat : [filebeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/filebeat-playbook.yml); Copy to `/etc/filebeat/filebeat.yml`
+- MetricBeat : [metricbeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/metricbeat-playbook.yml); Copy to `/etc/metricbeat/metricbeat.yml`
 
 _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- The ansible configuration file [ansible.cfg](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/ansible.cfg) must be created; 'curl -L -O https://ansible.com/  > ansible.cfg'
-- Using any text editor such as nano, edit the '/etc/ansible/hosts' file to specify which machines
+- The ansible configuration file [ansible.cfg](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/ansible.cfg) must be created; `curl -L -O https://ansible.com/  > ansible.cfg`
+- Using any text editor such as nano, edit the `/etc/ansible/hosts` file to specify which machines
 you want ELK installed on. Focus on _[webservers]_ and _[elk]_ to ensure the correct IP and interpreters
 are in that section. 
-For example, 
-'''[webserver]
-10.0.0.4 ansible_python_interpreter=/usr/bin/python3
-'''
+For example;
 
-- Run my_ansible.yml to execute these changes.
+```[webserver]
+10.0.0.4 ansible_python_interpreter=/usr/bin/python3
+```
+
+- Run my_ansible.yml** to execute these changes.
 
 _Which URL do you navigate to in order to check that the ELK server is running?_
 - http://[VM-PUBLIC-IP]:5601/app/kibana
