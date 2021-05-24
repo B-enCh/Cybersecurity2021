@@ -119,7 +119,7 @@ _In 1-2 sentences, explain what kind of data each beat collects, and provide 1 e
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
-SSH into the control node and follow the steps below:
+**SSH into the control node and follow the steps below**
 
 FILEBEAT
 - Copy the file; `curl -L -O https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat` >> `/etc/ansible/roles/filebeat-config.yml`
