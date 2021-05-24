@@ -75,10 +75,10 @@ _What is the main advantage of automating configuration with Ansible?_
 The playbook implements the following tasks:
 - _In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 
-..1. Docker.io, Python3-pip is installed using the apt module in linux.
-..2. Increase virtual memory using sysctl.
-..3. Download Docker container Image and configure with ports 9200:9200, 5601:5601 and 5044:5044 for Elasticsearch, Logstash and Kibana respectively. (ELK) 
-..4. Enable service docker on boot so that it starts automatically.
+1. Docker.io, Python3-pip is installed using the apt module in linux.
+2. Increase virtual memory using sysctl.
+3. Download Docker container Image and configure with ports 9200:9200, 5601:5601 and 5044:5044 for Elasticsearch, Logstash and Kibana respectively. (ELK) 
+4. Enable service docker on boot so that it starts automatically.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -113,12 +113,12 @@ SSH into the control node and follow the steps below:
 FILEBEAT
 - Copy the file; https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat >> /etc/ansible/roles/filebeat-config.yml.
 - Update the filebeat-playbook.yml file to include curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
-- Run the playbook, and navigate to http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/systemlogs > Click "Check data" at Step5  to check that the installation worked as expected.
+- Run the playbook, and navigate to _http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/systemlogs_ > Click **Check data** at Step5  to check that the installation worked as expected.
 
 METRICBEAT
 - Copy the file; curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat >> /etc/ansible/roles/metricbeat-config.yml
 - Update the filebeat-playbook.yml file to include curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb
-- Run the playbook, and navigate to http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/dockerMetrics> Click "Check data" at Step5  to check that the installation worked as expected.
+- Run the playbook, and navigate to _http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/dockerMetrics_ > Click **Check data** at Step5  to check that the installation worked as expected.
 
 _Answer the following questions to fill in the blanks:_
 _Which file is the playbook? Where do you copy it?_
@@ -128,14 +128,15 @@ _Which file is the playbook? Where do you copy it?_
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 - The ansible configuration file (ansible.cfg) must be created; curl -L -O https://ansible.com/  > ansible.cfg
 - Using any text editor such as nano, edit the /etc/ansible/hosts file to specify which machines
-you want ELK installed on. Focus on [webservers] and [elk] and ensure the correct IP and interpreters
+you want ELK installed on. Focus on _[webservers]_ and _[elk]_ to ensure the correct IP and interpreters
 are in that section. 
 For example, 
 [webserver]
 10.0.0.4 ansible_python_interpreter=/usr/bin/python3
+
 - Run my_ansible.yml to execute these changes.
 
-_Which URL do you navigate to in order to check that the ELK server is running?
+_Which URL do you navigate to in order to check that the ELK server is running?_
 - http://[VM-PUBLIC-IP]:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
