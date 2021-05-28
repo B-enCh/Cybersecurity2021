@@ -121,12 +121,12 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 FILEBEAT
 - Copy the file; [filebeat-config.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/filebeat-config.yml) >> `/etc/ansible/roles/filebeat-config.yml`
-- Update the filebeat-playbook.yml file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb`
+- Update the [filebeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/filebeat-playbook.yml) file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb`
 - Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/systemlogs_** > Click **Check data** at Step5  to check that the installation worked as expected
 
 METRICBEAT
-- Copy the file; [metricbeat-config.yml](https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c) >> `/etc/ansible/roles/metricbeat-config.yml`.
-- Update the filebeat-playbook.yml file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb`
+- Copy the file; [metricbeat-config.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/metricbeat-config.yml) >> `/etc/ansible/roles/metricbeat-config.yml`.
+- Update the [metricbeat-playbook.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/playbooks/metricbeat-playbook.yml) file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb`
 - Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/dockerMetrics_** > Click **Check data** at Step5  to check that the installation worked as expected
 
 _Which file is the playbook? Where do you copy it?_
