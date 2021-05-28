@@ -120,12 +120,12 @@ In order to use the playbook, you will need to have an Ansible control node alre
 **SSH into the control node and follow the steps below**
 
 FILEBEAT
-- Copy the file; `curl -L -O https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat` >> `/etc/ansible/roles/filebeat-config.yml`
+- Copy the file; [filebeat-config.yml](https://github.com/B-enCh/Cybersecurity2021/blob/main/Ansible/filebeat-config.yml) >> `/etc/ansible/roles/filebeat-config.yml`
 - Update the filebeat-playbook.yml file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb`
 - Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/systemlogs_** > Click **Check data** at Step5  to check that the installation worked as expected
 
 METRICBEAT
-- Copy the file; `curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat` >> `/etc/ansible/roles/metricbeat-config.yml`.
+- Copy the file; [metricbeat-config.yml](https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c) >> `/etc/ansible/roles/metricbeat-config.yml`.
 - Update the filebeat-playbook.yml file to include `curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb`
 - Run the playbook, and navigate to **_http://[VM-PUBLIC-IP]:5601/app/kibana#/home/tutorial/dockerMetrics_** > Click **Check data** at Step5  to check that the installation worked as expected
 
